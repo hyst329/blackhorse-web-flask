@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,6 +6,7 @@
     <title>{{ title }} - My Flask Application</title>
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/chessboard-0.3.0.min.css" />
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
 </head>
 
@@ -25,6 +26,7 @@
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('about') }}">About</a></li>
                     <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('play') }}">Play chess</a></li>
                 </ul>
             </div>
         </div>

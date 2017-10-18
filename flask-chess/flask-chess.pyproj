@@ -17,6 +17,7 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>flask-chess</Name>
     <RootNamespace>flask-chess</RootNamespace>
+    <InterpreterId>Global|ContinuumAnalytics|Anaconda36-64</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,6 +28,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="flask_chess\settings.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="flask_chess\__init__.py" />
     <Compile Include="flask_chess\views.py" />
@@ -36,10 +40,30 @@
     <Folder Include="flask_chess\static\" />
     <Folder Include="flask_chess\static\content\" />
     <Folder Include="flask_chess\static\fonts\" />
+    <Folder Include="flask_chess\static\images\" />
+    <Folder Include="flask_chess\static\images\chesspieces\" />
+    <Folder Include="flask_chess\static\images\chesspieces\wikipedia\" />
     <Folder Include="flask_chess\static\scripts\" />
     <Folder Include="flask_chess\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="flask_chess\static\content\chessboard-0.3.0.css" />
+    <Content Include="flask_chess\static\content\chessboard-0.3.0.min.css" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\bB.png" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\bK.png" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\bN.png" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\bP.png" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\bQ.png" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\bR.png" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\wB.png" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\wK.png" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\wN.png" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\wP.png" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\wQ.png" />
+    <Content Include="flask_chess\static\images\chesspieces\wikipedia\wR.png" />
+    <Content Include="flask_chess\static\scripts\chessboard-0.3.0.js" />
+    <Content Include="flask_chess\static\scripts\chessboard-0.3.0.min.js" />
+    <Content Include="flask_chess\templates\chess.html" />
     <Content Include="requirements.txt" />
     <Content Include="flask_chess\static\content\bootstrap.css" />
     <Content Include="flask_chess\static\content\bootstrap.min.css" />
@@ -67,6 +91,9 @@
     <Content Include="flask_chess\templates\contact.html" />
     <Content Include="flask_chess\templates\index.html" />
     <Content Include="flask_chess\templates\layout.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda36-64" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

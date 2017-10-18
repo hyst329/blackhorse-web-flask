@@ -1,0 +1,31 @@
+﻿{% extends "layout.html" %}
+
+{% block scripts %}
+<script src="/static/scripts/chessboard-0.3.0.min.js"></script>
+
+<script>
+    var init = function () {
+        var cfg = {
+            pieceTheme: '/static/images/chesspieces/wikipedia/{piece}.png',
+            position: 'start',
+            draggable: true,
+            dropOffBoard: 'snapback'
+        };
+        //--- start example JS ---
+        var board = ChessBoard('board', cfg);
+        //--- end example JS ---
+
+    }; // end init()
+    $(document).ready(init);
+</script>
+{% endblock %}
+ 
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+<div style="width: 50%" id="board"></div>
+
+<p>Use this area to provide additional information.</p>
+
+{% endblock %}
