@@ -3,8 +3,8 @@ Routes and views for the flask application.
 """
 
 from datetime import datetime
-from flask import render_template
-from flask_chess import app
+from flask import render_template, request, jsonify
+from flask_chess import app, engine
 import subprocess
 import os
 import chess
@@ -44,6 +44,7 @@ def about():
 @app.route('/play')
 def play():
     """Play chess inside the app."""
+    global engine
     engine_path = os.path.join(APP_STATIC, "engine/Blackhorse.exe")
     engine = chess.uci.popen_engine(engine_path)
     engine.uci()
@@ -54,3 +55,9 @@ def play():
         )
 
 @app.route('/move')
+def move():
+    global engine
+    fen = request.args.get("fen", "", type=str)
+    engine.position(chess.Board(fen))
+    move = engine.go(movetime=10000)[0]
+    return jsonify(move=move.uci())
