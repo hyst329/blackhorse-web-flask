@@ -6,7 +6,7 @@ from datetime import datetime
 from flask import render_template, request, jsonify
 from flask_chess import app, engine
 import subprocess
-import os
+import os, sys
 import chess
 import chess.uci
 from .settings import APP_STATIC
@@ -45,7 +45,10 @@ def about():
 def play():
     """Play chess inside the app."""
     global engine
-    engine_path = os.path.join(APP_STATIC, "engine/Blackhorse.exe")
+    if sys.platform == "win32":
+        engine_path = os.path.join(APP_STATIC, "engine/Blackhorse.exe")
+    elif sys.platform == "linux":
+        engine_path = os.path.join(APP_STATIC, "engine/Blackhorse")
     engine = chess.uci.popen_engine(engine_path)
     engine.uci()
     return render_template(
