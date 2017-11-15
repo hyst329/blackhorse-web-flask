@@ -56,8 +56,9 @@ def play():
 
 @app.route('/move')
 def move():
+    """AJAX call to the engine"""
     global engine
     fen = request.args.get("fen", "", type=str)
     engine.position(chess.Board(fen))
-    move = engine.go(movetime=10000)[0]
+    move = engine.go(movetime=10000)[0] # 10 seconds per move
     return jsonify(move=move.uci())

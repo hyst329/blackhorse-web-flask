@@ -31,6 +31,9 @@
     <Compile Include="flask_chess\settings.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="tests.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="flask_chess\__init__.py" />
     <Compile Include="flask_chess\views.py" />
